@@ -35,9 +35,8 @@ void uart3_init(void)
     UCSR3A &= ~(_BV(U2X3));
 #endif
     UCSR3C = _BV(UCSZ31) | _BV(UCSZ30); /* 8-bit data */
-    UCSR3B = _BV(TXEN3);   /* Enable RX and TX */
+    UCSR3B = _BV(TXEN3);   /* Enable TX */
 }
-
 
 int uart0_putchar(char c, FILE *stream)
 {
@@ -52,7 +51,7 @@ int uart0_putchar(char c, FILE *stream)
     return 0;
 }
 
-nt uart3_putchar(char c, FILE *stream)
+int uart3_putchar(char c, FILE *stream)
 {
     (void) stream;
 
@@ -60,9 +59,9 @@ nt uart3_putchar(char c, FILE *stream)
         uart3_putchar('\r', stream);
     }
 
-    loop_until_bit_is_set(UCSR3A, UDRE0);
+    loop_until_bit_is_set(UCSR3A, UDRE3);
     UDR3 = c;
-    return
+    return 0;
 }
 
 int uart0_getchar(FILE *stream)
@@ -71,3 +70,4 @@ int uart0_getchar(FILE *stream)
     loop_until_bit_is_set(UCSR0A, RXC0);
     return UDR0;
 }
+
