@@ -4,7 +4,7 @@
 
 #define PROG_VERSION "Version: %S built on: %S %S\n"
 #define LIBC_VERSION "avr-libc version: %S\n"
-#define STUD_NAME "Roomett Saadi"
+#define STUD_NAME "Roomet Saadi"
 #define GET_MONTH_MSG "Enter Month name first letter >"
 
 const char m1[]  PROGMEM = "January";
