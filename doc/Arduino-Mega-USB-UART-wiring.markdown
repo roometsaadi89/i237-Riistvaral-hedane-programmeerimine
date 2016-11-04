@@ -12,6 +12,6 @@ This wiring schema uses only Tx from Arduino and is suitable to be used as stand
 
 | Signal | ATMega2560 port and pin | Arduino Mega 2560 pin | USB UART converter pin |
 | --- | --- | --- | --- |
-| Ground (GND) | - | GND | GND |
-| Transmit data  from Arduino (TxD) | PORTJ 1 (TXD3) | 14 (TX3) | TxD |
+| Ground (GND) | GND | GND | GND |
+| Transmit data  from Arduino (TxD) | PORTJ pin 1 (TXD3) | Digital pin 14 (TX3) | TxD |
 
