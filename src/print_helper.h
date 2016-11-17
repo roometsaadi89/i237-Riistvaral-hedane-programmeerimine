@@ -6,3 +6,4 @@ int print_for_human (FILE *stream, const unsigned char *array, const int len);
 
 #endif /* _PRINT_HELPER_H_ */
 
+
