@@ -2,20 +2,31 @@
 #define _HMI_MSG_H_
 #include <avr/pgmspace.h>
 #define UPTIME "Uptime: %lu s"
+#define STUD_NAME "Roomet Saadi"
+#define VER_FW "Version: %S built on: %S %S"
+#define VER_LIBC "avr-libc version: %S avr-gcc version : %S"
 
-const char STUD_NAME[] PROGMEM = "Roomet Saadi";
-const char VER_FW[] PROGMEM = "Version: %S built on: %S %S\n";
-const char VER_LIBC[] PROGMEM = "avr-libc version: %S\n";
-const char MONTH_MSG[] PROGMEM = "Enter Month name first letter >";
+#define HELP_CMD "help"
+#define HELP_HELP "Get help"
+#define VER_CMD "version"
+#define VER_HELP "Print FW version"
+#define ASCII_CMD "ascii"
+#define ASCII_HELP "print ASCII tables"
+#define MONTH_CMD "month"
+#define MONTH_HELP "Find matching month from lookup list. Usage: month <string>"
+#define CLI_HELP_MSG "Implemented commands:"
+#define CLI_NO_CMD "Command not implemented.\n Use <help> to get help."
+#define CLI_ARGS_MSG "To few or to many arguments for this command\nUse <help>"
 
-const char january[] PROGMEM = "January";
-const char february[] PROGMEM = "February";
-const char march[] PROGMEM = "March";
-const char april[] PROGMEM = "April";
-const char may[] PROGMEM = "May";
-const char june[] PROGMEM = "June";
+extern PGM_P const month_lst[];
 
-PGM_P const months[] PROGMEM = {january,february,march,april,may,june};
+extern const char help_cmd[];
+extern const char help_help[];
+extern const char ver_cmd[];
+extern const char ver_help[];
+extern const char ascii_cmd[];
+extern const char ascii_help[];
+extern const char month_cmd[];
+extern const char month_help[];
 
 #endif /* _HMI_MSG_H_ */
-
