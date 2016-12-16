@@ -1,32 +1,37 @@
+/*This file is part of Foobar.
+
+    Foobar is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Foobar is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Foobar.  If not, see <http://www.gnu.org/licenses/>. */
+
+#include <avr/pgmspace.h>
 #ifndef _HMI_MSG_H_
 #define _HMI_MSG_H_
-#include <avr/pgmspace.h>
-#define UPTIME "Uptime: %lu s"
+
+#define PRO1 "Version: "
+#define PRO2 " built on: "
+#define LIBC "avr-libc version: "
+#define AVR "avr-gcc version: "
 #define STUD_NAME "Roomet Saadi"
-#define VER_FW "Version: %S built on: %S %S"
-#define VER_LIBC "avr-libc version: %S avr-gcc version : %S"
+#define MONTH "Enter Month name first letter >"
+#define UPTIME "Uptime: %lu s"
+#define UART_STATUS_MASK 0xFF
+#define CMD_ERROR "\nCommand not implemented\n Use <help> to get help.\n"
+#define CMD_ARG_ERROR "\nToo few or too many arguments for this command.\nUse <help>\n"
+#define HELP1 "Implemented commands:\n"
+#define HELP2 " : "
+#define ACCESS "ACCESS DENIED!"
 
-#define HELP_CMD "help"
-#define HELP_HELP "Get help"
-#define VER_CMD "version"
-#define VER_HELP "Print FW version"
-#define ASCII_CMD "ascii"
-#define ASCII_HELP "print ASCII tables"
-#define MONTH_CMD "month"
-#define MONTH_HELP "Find matching month from lookup list. Usage: month <string>"
-#define CLI_HELP_MSG "Implemented commands:"
-#define CLI_NO_CMD "Command not implemented.\n Use <help> to get help."
-#define CLI_ARGS_MSG "To few or to many arguments for this command\nUse <help>"
+extern PGM_P const name_month[];
 
-extern PGM_P const month_lst[];
+#endif
 
-extern const char help_cmd[];
-extern const char help_help[];
-extern const char ver_cmd[];
-extern const char ver_help[];
-extern const char ascii_cmd[];
-extern const char ascii_help[];
-extern const char month_cmd[];
-extern const char month_help[];
-
-#endif /* _HMI_MSG_H_ */

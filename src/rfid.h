@@ -13,45 +13,24 @@
     You should have received a copy of the GNU General Public License
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <avr/io.h>
-#include <stdio.h>
-#include "hmi_msg.h"
-#include "../lib/andygock_avr-uart/uart.h"
+#ifndef _RFID_H_
+#define _RFID_H_
+#include <inttypes.h>
 
+#ifndef NULL
+#define NULL ((void *)0)
+#endif
 
-int uart0_putchar(char c, FILE *stream)
-{
-    (void) stream;
+typedef struct card {
+    uint8_t size;
+    uint8_t uid[10];
+    char *name;
+    struct card *next;
+} card_t;
 
-    if (c == '\n') {
-        uart0_putc('\r');
-        uart0_putc('\n');
-        return 0;
-    }
+extern card_t *head;
 
-    uart0_putc((uint8_t)c);
-    return 0;
-}
+void check(void);
 
-
-int uart3_putchar(char c, FILE *stream)
-{
-    (void) stream;
-
-    if (c == '\n') {
-        uart3_putc('\r');
-        uart3_putc('\n');
-        return 0;
-    }
-
-    uart3_putc((uint8_t)c);
-    return 0;
-}
-
-
-int uart0_getchar(FILE *stream)
-{
-    (void) stream;
-    return (uart0_getc() & UART_STATUS_MASK);
-}
+#endif
 
